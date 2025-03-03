@@ -1,3 +1,25 @@
+document.addEventListener("DOMContentLoaded", function () {
+    // Populate birth month dropdown
+    const birthMonthSelect = document.getElementById("birthMonth");
+    for (let i = 1; i <= 12; i++) {
+        let option = document.createElement("option");
+        option.value = i;
+        option.textContent = i;
+        birthMonthSelect.appendChild(option);
+    }
+
+    // Populate birth year dropdown
+    const birthYearSelect = document.getElementById("birthYear");
+    const currentYear = new Date().getFullYear();
+    const startYear = 1900; // Adjust as needed
+
+    for (let year = currentYear; year >= startYear; year--) {
+        let option = document.createElement("option");
+        option.value = year;
+        option.textContent = year;
+        birthYearSelect.appendChild(option);
+    }
+});
 
 function calculateCatAge() {
     let birthMonth = parseInt(document.getElementById("birthMonth").value);
@@ -25,3 +47,4 @@ function calculateCatAge() {
 
     document.getElementById("result").innerText = `Your cat is approximately ${humanYears.toFixed(1)} human years old and ${catYears.toFixed(1)} cat years old.`;
 }
+
